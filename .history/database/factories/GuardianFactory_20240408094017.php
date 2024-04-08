@@ -17,9 +17,7 @@ class GuardianFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'contact_number' => $this->faker->phoneNumber(),
-            'relation_type' => $this->faker->random
+            //
         ];
     }
 }

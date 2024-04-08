@@ -84,7 +84,7 @@ class StudentResource extends Resource
                         Tables\Actions\Action::make('Demote')
                             ->action(function (Student $record) {
                                 if ($record->standard_id > 1) {
-                                    $record->standard_id = $record->standard_id - 1;
+                                    $record->standard_id = $record->standard_id + 1;
                                     $record->save();
                                 }
                             })

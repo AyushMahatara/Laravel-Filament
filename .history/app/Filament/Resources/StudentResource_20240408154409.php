@@ -71,30 +71,6 @@ class StudentResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\ActionGroup::make(
-                    [
-                        Tables\Actions\Action::make('Promote')
-                            ->action(function (Student $record) {
-                                $record->standard_id = $record->standard_id + 1;
-                                $record->save();
-                            })
-                            ->color('success')
-                            ->requiresConfirmation(),
-
-                        Tables\Actions\Action::make('Demote')
-                            ->action(function (Student $record) {
-                                if ($record->standard_id > 1) {
-                                    $record->standard_id = $record->standard_id - 1;
-                                    $record->save();
-                                }
-                            })
-                            ->color('dangre')
-                            ->requiresConfirmation(),
-
-
-                    ]
-                ),
-
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

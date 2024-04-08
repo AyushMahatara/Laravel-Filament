@@ -6,7 +6,6 @@ use App\Filament\Resources\StudentResource\Pages;
 use App\Filament\Resources\StudentResource\RelationManagers;
 use App\Models\Student;
 use Filament\Forms;
-use Filament\Forms\Components\Builder as ComponentsBuilder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -18,7 +17,6 @@ use Filament\Forms\Components\TextInput;
 use function Laravel\Prompts\table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
-use Filament\Tables\Filters\SelectFilter;
 
 class StudentResource extends Resource
 {
@@ -57,14 +55,7 @@ class StudentResource extends Resource
             ])
             ->filters([
                 Filter::make('Start')
-                    ->query(fn (Builder $query): Builder => $query->where('standard_id', 1)),
-                SelectFilter::make('standard_id')->options([
-                    1 => 'standard 1',
-                    3 => 'standard 3'
-                ])
-                    ->label('Select the class'),
-                SelectFilter::make('All Standard')
-                    ->relationship('standard', 'name')
+                ->query(fn)
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

@@ -64,7 +64,6 @@ class StudentResource extends Resource
                 ])
                     ->label('Select the class'),
                 SelectFilter::make('All Standard')
-                    ->relationship('standard', 'name')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

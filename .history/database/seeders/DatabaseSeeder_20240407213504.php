@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Standard;
 use App\Models\Student;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,6 +23,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Student::factory(10)->create();
-        $this->call(StandardSeeder::class);
+        standard::factory(10)->create();
     }
 }

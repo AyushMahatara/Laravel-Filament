@@ -102,13 +102,7 @@ class StudentResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                     Tables\Actions\BulkAction::make('Promote All')
                         ->action(function (Collection $records) {
-                            $records->each(function ($record) {
-                                $record->standard_id = $record->standard_id + 1;
-                                $record->save();
-                            });
-                        })
-                        ->requiresConfirmation()
-                        ->deselectRecordsAfterCompletion(),
+                        }),
                 ]),
             ]);
     }

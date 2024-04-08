@@ -106,9 +106,7 @@ class StudentResource extends Resource
                                 $record->standard_id = $record->standard_id + 1;
                                 $record->save();
                             });
-                        })
-                        ->requiresConfirmation()
-                        ->deselectRecordsAfterCompletion(),
+                        }),
                 ]),
             ]);
     }

@@ -20,7 +20,7 @@ class GuardianFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'contact_number' => $this->faker->phoneNumber(),
-            'relation_type' => $this->faker->randomElement(RelationType::getValue()),
+            'relation_type' => $this->faker->randomElement(RelationType::getValues()),
         ];
     }
 }

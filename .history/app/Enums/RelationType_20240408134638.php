@@ -10,7 +10,7 @@ enum RelationType: string
     case SISTER = 'Sister';
     case BROTHER = 'Brother';
 
-    public static function  getValue(): array
+    public static function getValue(): array
     {
         return array_column(RelationType::cases(), 'value');
     }

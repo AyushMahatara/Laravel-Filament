@@ -60,8 +60,7 @@ class StudentResource extends Resource
                                         ->label('street Address'),
                                 ]
                             )
-                            ->icon('heroicon-o-home')
-                            ->description('enter correct address'),
+                            ->icon('heroicon-o-home'),
                         Step::make('Class')
                             ->schema(
                                 [

@@ -10,7 +10,6 @@ use App\Models\Student;
 use Filament\Forms;
 use Filament\Forms\Components\Builder as ComponentsBuilder;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Wizard;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -18,8 +17,6 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Wizard\Step;
-
 use function Laravel\Prompts\table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
@@ -38,43 +35,17 @@ class StudentResource extends Resource
     {
         return $form
             ->schema([
-                Wizard::make(
-                    [
-                        Step::make('Personal Information')
-                            ->schema(
-                                [
-                                    TextInput::make('name')
-                                        ->required()
-                                        ->minLength(5),
-                                    TextInput::make('student_id'),
-                                ]
-                            )
-                            ->icon('heroicon-o-users'),
-                        Step::make('Address')
-                            ->schema(
-                                [
-                                    TextInput::make('address_1')
-                                        ->label('Country')
-                                        ->minLength(3),
-                                    TextInput::make('address_2')
-                                        ->label('street Address'),
-                                ]
-                            )
-                            ->icon('heroicon-o-home')
-                            ->description('enter correct address'),
-                        Step::make('Class')
-                            ->schema(
-                                [
-                                    Select::make('standard_id')
-                                        ->required()->relationship('standard', 'name')->label('Class')
-                                ]
-                            )
-                            ->icon('heroicon-o-academic-cap'),
-
-                    ]
-                )
-                    ->skippable(),
-
+                TextInput::make('name')
+                    ->required()
+                    ->minLength(5),
+                TextInput::make('student_id'),
+                TextInput::make('address_1')
+                    ->label('Country')
+                    ->minLength(3),
+                TextInput::make('address_2')
+                    ->label('street Address'),
+                Select::make('standard_id')
+                    ->required()->relationship('standard', 'name')->label('Class')
             ]);
     }
 

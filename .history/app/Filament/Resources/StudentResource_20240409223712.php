@@ -59,9 +59,7 @@ class StudentResource extends Resource
                                     TextInput::make('address_2')
                                         ->label('street Address'),
                                 ]
-                            )
-                            ->icon('heroicon-o-home')
-                            ->description('enter correct address'),
+                            ),
                         Step::make('Class')
                             ->schema(
                                 [
@@ -69,11 +67,8 @@ class StudentResource extends Resource
                                         ->required()->relationship('standard', 'name')->label('Class')
                                 ]
                             )
-                            ->icon('heroicon-o-academic-cap'),
-
                     ]
-                )
-                    ->skippable(),
+                ),
 
             ]);
     }

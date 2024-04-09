@@ -44,6 +44,7 @@ class StudentResource extends Resource
                     ->description('Add Student Personal Information')
                     ->schema(
                         [
+
                             Wizard::make(
                                 [
                                     Step::make('Personal Information')

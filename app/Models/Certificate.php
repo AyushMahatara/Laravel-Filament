@@ -12,4 +12,8 @@ class Certificate extends Model
         'name', 'description', 'is_active', 'certificate_image'
 
     ];
+
+    protected $casts = [
+        'certificate_image' => 'array'
+    ];
 }

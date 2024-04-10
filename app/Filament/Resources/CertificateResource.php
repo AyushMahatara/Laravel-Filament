@@ -31,7 +31,8 @@ class CertificateResource extends Resource
                 TextInput::make('name'),
                 MarkdownEditor::make('description'),
                 Toggle::make('is_active')->default(true),
-                FileUpload::make('certificate_image'),
+                FileUpload::make('certificate_image')
+                    ->multiple(),
 
             ]);
     }

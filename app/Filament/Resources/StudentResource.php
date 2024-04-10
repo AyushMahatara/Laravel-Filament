@@ -82,9 +82,10 @@ class StudentResource extends Resource
                             )
                                 ->skippable(),
                         ]
-                    ),
-                Section::make('Personal Info')
-                    ->description('Add Student Personal Information')
+                    )
+                    ->collapsible(),
+                Section::make('Additional Info')
+                    ->description('Some Information About Student')
                     ->schema(
                         [
                             Repeater::make('vitals')
@@ -97,7 +98,9 @@ class StudentResource extends Resource
                                     ]
                                 )
                         ]
-                    ),
+                    )
+                    ->collapsible()
+                    ->collapsed(),
             ]);
     }
 

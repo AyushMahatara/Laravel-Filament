@@ -9,6 +9,7 @@ use App\Filament\Resources\StudentResource\RelationManagers\GuardiansRelationMan
 use App\Models\Student;
 use Filament\Forms;
 use Filament\Forms\Components\Builder as ComponentsBuilder;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Wizard;
@@ -81,8 +82,22 @@ class StudentResource extends Resource
                             )
                                 ->skippable(),
                         ]
-                    )
-
+                    ),
+                Section::make('Personal Info')
+                    ->description('Add Student Personal Information')
+                    ->schema(
+                        [
+                            Repeater::make('vitals')
+                                ->schema(
+                                    [
+                                        Select::make('name')->options(config('sm_config.vitals'))
+                                            ->required(),
+                                        TextInput::make('value')
+                                            ->required(),
+                                    ]
+                                )
+                        ]
+                    ),
             ]);
     }
 

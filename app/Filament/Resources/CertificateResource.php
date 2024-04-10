@@ -32,6 +32,7 @@ class CertificateResource extends Resource
                 MarkdownEditor::make('description'),
                 Toggle::make('is_active')->default(true),
                 FileUpload::make('certificate_image'),
+
             ]);
     }
 

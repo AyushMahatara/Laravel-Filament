@@ -25,9 +25,11 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Student::class)->index();
             $table->foreignIdFor(Certificate::class)->index();
-            $table->$table->timestamps();
+            $table->text('description');
+            $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

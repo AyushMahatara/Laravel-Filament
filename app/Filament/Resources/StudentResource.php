@@ -6,6 +6,7 @@ use App\Events\PromoteStudent;
 use App\Filament\Resources\StudentResource\Pages;
 use App\Filament\Resources\StudentResource\RelationManagers;
 use App\Filament\Resources\StudentResource\RelationManagers\GuardiansRelationManager;
+use App\Models\Certificate;
 use App\Models\Student;
 use Filament\Forms;
 use Filament\Forms\Components\Builder as ComponentsBuilder;
@@ -94,6 +95,26 @@ class StudentResource extends Resource
                                         Select::make('name')->options(config('sm_config.vitals'))
                                             ->required(),
                                         TextInput::make('value')
+                                            ->required(),
+                                    ]
+                                )
+                        ]
+                    )
+                    ->collapsible()
+                    ->collapsed(),
+
+                Section::make('Certificates')
+                    ->description('Some Certificates of Student')
+                    ->schema(
+                        [
+                            Repeater::make('certificates')
+                                ->relationship('certificate')
+                                ->schema(
+                                    [
+                                        Select::make('certificate_id')->options(Certificate::all()->pluck('name', 'id'))
+                                            ->required()
+                                            ->searchable(),
+                                        TextInput::make('description')
                                             ->required(),
                                     ]
                                 )

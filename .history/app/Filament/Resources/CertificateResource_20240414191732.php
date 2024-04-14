@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources;
 
-use App\CustomColumns\CustomImageColumn;
 use App\Filament\Resources\CertificateResource\Pages;
 use App\Filament\Resources\CertificateResource\RelationManagers;
 use App\Models\Certificate;
@@ -47,6 +46,9 @@ class CertificateResource extends Resource
                 TextColumn::make('name'),
                 TextColumn::make('description'),
                 ImageColumn::make('certificate_image')
+                    ->format(function ($value, $record) {
+                        return '<a href="' . $record->certificate_image->url() . '" target="_blank"><img src="' . $value . '" style="max-width: 100px;"></a>';
+                    })
                     ->defaultImageUrl(url('/images/placeholder.png')),
 
             ])

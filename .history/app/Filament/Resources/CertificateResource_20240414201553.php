@@ -48,7 +48,10 @@ class CertificateResource extends Resource
                 TextColumn::make('description'),
                 ImageColumn::make('certificate_image')
                     ->defaultImageUrl(url('/images/placeholder.png')),
-
+                CustomImageColumn::make('Certificate Image', 'certificate_image')
+                    ->fullSizeUrl(function ($record) {
+                        return $record->certificate_image->url(); // Modify this to return the correct URL
+                    }),
             ])
             ->filters([
                 //

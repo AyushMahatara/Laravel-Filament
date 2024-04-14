@@ -13,7 +13,6 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -45,9 +44,7 @@ class CertificateResource extends Resource
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('description'),
-                ImageColumn::make('certificate_image')
-                    ->defaultImageUrl(url('/images/placeholder.png')),
-
+                TextColumn::make('certificate_image'),
             ])
             ->filters([
                 //

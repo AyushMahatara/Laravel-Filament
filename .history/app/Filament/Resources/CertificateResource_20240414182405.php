@@ -45,8 +45,7 @@ class CertificateResource extends Resource
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('description'),
-                ImageColumn::make('certificate_image')
-                    ->defaultImageUrl(url('/images/placeholder.png')),
+                ImageColumn::make('certificate_image'),
 
             ])
             ->filters([

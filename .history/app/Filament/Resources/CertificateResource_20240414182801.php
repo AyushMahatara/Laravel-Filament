@@ -34,7 +34,8 @@ class CertificateResource extends Resource
                 Toggle::make('is_active')->default(true),
                 FileUpload::make('certificate_image')
                     ->multiple()
-                    ->preserveFilenames(),
+                    ->preserveFilenames()
+                    ->defaultImageUrl(url('/images/placeholder.png')),
 
             ]);
     }
@@ -45,8 +46,7 @@ class CertificateResource extends Resource
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('description'),
-                ImageColumn::make('certificate_image')
-                    ->defaultImageUrl(url('/images/placeholder.png')),
+                ImageColumn::make('certificate_image'),
 
             ])
             ->filters([
